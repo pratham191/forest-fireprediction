@@ -95,49 +95,38 @@
         <br>
         <br>
         <h2>🔥 Forest Fire Prediction</h2>
+        
         <form action="/predictdata" method="post">
-            <label for="temperature">Temperature:</label>
-            <input type="number" step="any" id="temperature" name="Temperature"
-                   value="{{ form_data.Temperature if form_data else '' }}" required>
+    <label>Temperature (°C):</label>
+    <input type="number" step="0.1" name="Temperature" value="{{ form_data.Temperature if form_data else '' }}" required><br>
 
-            <label for="rh">Relative Humidity (RH):</label>
-            <input type="number" step="any" id="rh" name="RH"
-                   value="{{ form_data.RH if form_data else '' }}" required>
+    <label>Relative Humidity (%):</label>
+    <input type="number" step="0.1" name="RH" value="{{ form_data.RH if form_data else '' }}" required><br>
 
-            <label for="ws">Wind Speed (WS):</label>
-            <input type="number" step="any" id="ws" name="WS"
-                   value="{{ form_data.WS if form_data else '' }}" required>
+    <label>Wind Speed (km/h):</label>
+    <input type="number" step="0.1" name="WS" value="{{ form_data.WS if form_data else '' }}" required><br>
 
-            <label for="rain">Rain:</label>
-            <input type="number" step="any" id="rain" name="Rain"
-                   value="{{ form_data.Rain if form_data else '' }}" required>
+    <label>Rain (mm):</label>
+    <input type="number" step="0.1" name="Rain" value="{{ form_data.Rain if form_data else '' }}" required><br>
 
-            <label for="ffmc">FFMC:</label>
-            <input type="number" step="any" id="ffmc" name="FFMC"
-                   value="{{ form_data.FFMC if form_data else '' }}" required>
+    <label>FFMC (index):</label>
+    <input type="number" step="0.1" name="FFMC" value="{{ form_data.FFMC if form_data else '' }}" required><br>
 
-            <label for="dmc">DMC:</label>
-            <input type="number" step="any" id="dmc" name="DMC"
-                   value="{{ form_data.DMC if form_data else '' }}" required>
+    <label>DMC (index):</label>
+    <input type="number" step="0.1" name="DMC" value="{{ form_data.DMC if form_data else '' }}" required><br>
 
-            <label for="isi">ISI:</label>
-            <input type="number" step="any" id="isi" name="ISI"
-                   value="{{ form_data.ISI if form_data else '' }}" required>
+    <label>ISI (index):</label>
+    <input type="number" step="0.1" name="ISI" value="{{ form_data.ISI if form_data else '' }}" required><br>
 
-            <label for="classes">Classes:</label>
-            <select id="classes" name="Classes" required>
-                <option value="1" {% if form_data and form_data.Classes == 1 %}selected{% endif %}>Fire</option>
-                <option value="0" {% if form_data and form_data.Classes == 0 %}selected{% endif %}>Not Fire</option>
-            </select>
+    <label>Classes (1 = Fire, 0 = No Fire):</label>
+    <input type="number" name="Classes" value="{{ form_data.Classes if form_data else '' }}" required><br>
 
-            <label for="region">Region:</label>
-            <select id="region" name="Region" required>
-                <option value="1" {% if form_data and form_data.Region == 1 %}selected{% endif %}>North</option>
-                <option value="0" {% if form_data and form_data.Region == 0 %}selected{% endif %}>South</option>
-            </select>
+    <label>Region (1 = North, 0 = South):</label>
+    <input type="number" name="Region" value="{{ form_data.Region if form_data else '' }}" required><br>
 
-            <button type="submit">Predict</button>
-        </form>
+    <button type="submit">Predict</button>
+</form>
+
 
         
        {% if results is not none %}
@@ -153,3 +142,6 @@
     </div>
 </body>
 </html>
+
+
+
